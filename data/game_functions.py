@@ -97,7 +97,7 @@ def check_play_button(ai_settings,screen,stats,sb,play_button,ship,aliens,bullet
                         
                 elif stats.music_active == True:
                         music.stop()
-                        stats.music_active = False
+                        
                         
                 sb.prep_score()
                 sb.prep_high_score()
@@ -112,13 +112,16 @@ def check_play_button(ai_settings,screen,stats,sb,play_button,ship,aliens,bullet
                 ship.center_ship()
 
 
-def update_screen(ai_settings,screen,stats,sb,ship,aliens,bullets,play_button):
+def update_screen(ai_settings,screen,stats,sb,stars,ship,aliens,bullets,play_button):
     screen.fill(ai_settings.bg_color)
     for bullet in bullets.sprites():
             bullet.draw_bullet()
+    
+    stars.blitme()
     ship.blitme()
     aliens.draw(screen)
     sb.show_score()
+    
     if not stats.game_active:
             play_button.draw_button()
             

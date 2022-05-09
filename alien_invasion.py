@@ -7,9 +7,7 @@ from data.alien import Alien
 from data.game_stats import GameStats
 from data.button import Button
 from data.scoreboard import ScoreBoard
-import os
-import sys
-
+from data.stars import Stars
 
 def run_game():
     #Game window settings
@@ -18,6 +16,7 @@ def run_game():
     screen = pygame.display.set_mode(
         (ai_settings.screen_width,ai_settings.screen_height))
     pygame.display.set_caption("Alien Invasion")
+    pygame.display.set_icon(pygame.image.load(ai_settings.icon_path))
     #Making Ship
     ship = Ship(ai_settings, screen)
     #Groups for aliens and bullets
@@ -33,6 +32,8 @@ def run_game():
     play_button = Button(ai_settings,screen,'Play')
     #Score Board
     sb = ScoreBoard(ai_settings,screen,stats)
+    #Stars
+    stars = Stars(ai_settings,screen)
 
 
 
@@ -43,7 +44,7 @@ def run_game():
             gf.update_bullets(ai_settings,screen,stats,sb,ship,aliens,bullets)
             gf.update_aliens(ai_settings,screen,stats,sb,ship,aliens,bullets)
         
-        gf.update_screen(ai_settings,screen,stats,sb,ship,aliens,bullets,play_button)   
+        gf.update_screen(ai_settings,screen,stats,sb,stars,ship,aliens,bullets,play_button)   
         
          
 

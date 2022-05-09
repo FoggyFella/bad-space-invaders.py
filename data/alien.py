@@ -9,8 +9,8 @@ class Alien(Sprite):
         self.screen = screen
         self.ai_settings = ai_settings
 
-        self.image_url = gf.resource_path('data\\images\\Alien.bmp')
-        self.image = pygame.image.load(self.image_url)
+        self.image_url = gf.resource_path('data\\images\\alien_game.png')
+        self.image = pygame.image.load(self.image_url).convert_alpha()
         self.rect = self.image.get_rect()
         
         self.rect.x = self.rect.width

@@ -23,6 +23,7 @@ class Settings():
         self.score_scale = 1.5
 
         self.filename = "data\\user_data\\high_score_save.json"
+        self.icon_path = "data\\images\\ship_game.png"
         
 
         self.initialize_dynamic_settings()
